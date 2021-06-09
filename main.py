@@ -15,10 +15,10 @@ def read_text_file(file_path):
                 if codice_modulo in data:
                     if "istruzioni_compilazione=" in data:
                         data = data.replace(
-                            "istruzioni_compilazione=", pLower+"\n"+"istruzioni_compilazione=")
+                            "istruzioni_compilazione=", pUpper+"\n"+"istruzioni_compilazione=")
                 else:
                     data = data.replace("istruzioni_compilazione=",
-                                        nLower+"\n"+"istruzioni_compilazione=")
+                                        nUpper+"\n"+"istruzioni_compilazione=")
             else:
                 return False
     except IOError:
@@ -45,7 +45,6 @@ interestedFolders = [x for x in os.listdir(mainPath) if x not in ignoredFolder]
 
 
 for folder in interestedFolders:
-
     for root, dirs, files in os.walk(mainPath+"/"+folder):
         if "_modules_r_" in root:
             for file in files:
